@@ -3424,7 +3424,7 @@ void CompilerGLSL::emit_declared_builtin_block(StorageClass storage, ExecutionMo
 			statement("float gl_ClipDistance[", clip_distance_size, "];");
 	}
 
-	if (emitted_builtins.get(BuiltInCullDistance))
+	if (emitted_builtins.get(BuiltInCullDistance) && options.version >= 450)
 	{
 		auto itr = builtin_xfb_offsets.find(BuiltInCullDistance);
 		if (itr != end(builtin_xfb_offsets))
